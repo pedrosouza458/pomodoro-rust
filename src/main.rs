@@ -1,11 +1,8 @@
-use std::io;
-use std::num::ParseIntError;
-
 mod audio;
 mod terminal;
 mod timer;
 
-use terminal::clear_terminal;
+use terminal::{clear_terminal, prompt_restart, read_input};
 use timer::set_timer;
 
 fn main() {
@@ -26,14 +23,11 @@ A pomodoro 🍅 built in Rust
          "
     );
 
-    let mut input: String = String::new();
-    io::stdin()
-        .read_line(&mut input)
-        .expect("Error reading input value");
-    let sanitazed_input: Result<i32, ParseIntError> = input.trim().parse();
-
-    match sanitazed_input {
-        Ok(1) => set_timer(1500),
-        _ => {}
+    loop {
+        match read_input() {
+            1 => set_timer(25),
+            _ => break,
+        }
+        prompt_restart();
     }
 }
