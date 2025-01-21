@@ -24,7 +24,7 @@ pub fn set_timer(time: u64) {
             match start_time.elapsed() {
                 Ok(elapsed) => {
                     if elapsed.as_secs() % 60 == 0 {
-                        println!("{} focus minutes has passed", elapsed.as_secs());
+                        println!("{} focus minutes has passed", elapsed.as_secs() / 60);
                     }
                 }
                 Err(e) => {
@@ -62,7 +62,7 @@ pub fn set_rest(time: u64) {
         match start_time.elapsed() {
             Ok(elapsed) => {
                 if elapsed.as_secs() % 60 == 0 {
-                    println!("{} rest minutes has passed", elapsed.as_secs());
+                    println!("{} rest minutes has passed", elapsed.as_secs() / 60);
                 }
             }
             Err(e) => {
