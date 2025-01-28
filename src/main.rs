@@ -23,11 +23,8 @@ A pomodoro 🍅 built in Rust
          "
     );
 
-    loop {
-        match read_input() {
-            1 => set_timer(25),
-            _ => break,
-        }
+    while let 1 = read_input() {
+        set_timer(25);
         prompt_restart();
     }
 }

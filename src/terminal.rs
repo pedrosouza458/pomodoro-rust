@@ -13,7 +13,7 @@ pub fn read_input() -> i32 {
     if let Ok(option) = input.trim().parse() {
         return option;
     }
-    return 0;
+    0
 }
 
 pub fn prompt_restart() {
